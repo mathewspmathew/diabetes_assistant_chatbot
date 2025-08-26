@@ -29,5 +29,14 @@ st.markdown(
     ---
     
     **Disclaimer:** This tool is for informational purposes only. It is not a substitute for professional medical advice. Always consult with a qualified healthcare provider.
+    ### Our Commitment to Trustworthy Information
+
+    Welcome! This AI assistant is powered by a knowledge base created from publicly available information from the world's leading health organizations. We believe in transparency, and our sources include:
+
+    *   **World Health Organization (WHO)** - [who.int](https://www.who.int)
+    *   **U.S. Centers for Disease Control and Prevention (CDC)** - [cdc.gov](https://www.cdc.gov)
+    *   **UK National Health Service (NHS)** - [nhs.uk](https://www.nhs.uk)
+    *   **National Library of Medicine (PubMed Central & MedlinePlus)** - [nih.gov](https://www.nih.gov)
+
     """
 )

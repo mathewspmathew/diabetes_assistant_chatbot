@@ -1,5 +1,3 @@
-# rag_backend.py
-
 import os
 from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
@@ -9,14 +7,14 @@ from langchain_google_genai import ChatGoogleGenerativeAI  # <-- IMPORT GEMINI
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-# --- CONFIGURATION ---
+
 FAISS_INDEX_PATH = "faiss_index"
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # Load environment variables from .env file
 load_dotenv()
 
-# --- VERIFY API KEY IS AVAILABLE ---
+# VERIFY API 
 if not os.getenv("GOOGLE_API_KEY"):
     raise ValueError("GOOGLE_API_KEY not found in .env file. Please add it.")
 
@@ -27,27 +25,27 @@ def get_rag_chain():
     if not os.path.exists(FAISS_INDEX_PATH):
         raise FileNotFoundError(f"FAISS index not found at {FAISS_INDEX_PATH}. Please run build_vectorstore.py first.")
     
-    # 1. Load embedding model (no changes here)
+    # 1. Load embedding model 
     embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
     
-    # 2. Load the FAISS index (no changes here)
+    # 2. Load the FAISS index 
     db = FAISS.load_local(
         FAISS_INDEX_PATH, 
         embeddings, 
         allow_dangerous_deserialization=True
     )
     
-    # 3. Create a retriever (no changes here)
+    # 3. Create a retriever 
     retriever = db.as_retriever(search_type="similarity", search_kwargs={"k": 3})
     
-    # 4. Define the LLM as Gemini Pro <-- MAJOR CHANGE HERE
+    # 4. Define the LLM 
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.5-flash",
         temperature=0.3,
         google_api_key=os.getenv("GOOGLE_API_KEY") # Pass the key explicitly
     )
 
-    # 5. Define the prompt template (no changes here)
+    # 5. Define the prompt template
     template = """You are a helpful health assistant. Answer the user's question based only on the provided context.
     If the context does not contain the answer, state that you don't have enough information.
     Provide actionable suggestions if supported by the context.
