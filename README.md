@@ -25,7 +25,7 @@ Project solves this by using a **RAG pipeline**. Instead of answering from its g
 
 ## 🎬 Demo
 
-![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/mathewspmathew/diabetes_assistant_chatbot/blob/main/Screen%20Recording%202025-08-26%20150932.gif))
+![](https://raw.githubusercontent.com/mathewspmathew/diabetes_assistant_chatbot/main/Screen%20Recording%202025-08-26%20150932.gif)
 
 *A brief demonstration of the chatbot answering a user's question.*
 
