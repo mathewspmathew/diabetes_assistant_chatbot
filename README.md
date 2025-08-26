@@ -25,9 +25,9 @@ Project solves this by using a **RAG pipeline**. Instead of answering from its g
 
 ## 🎬 Demo
 
-[Add a GIF or Screenshot Here]
+![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/mathewspmathew/diabetes_assistant_chatbot/blob/main/Screen%20Recording%202025-08-26%20150932.gif))
 
-*A brief demonstration of the chatbot answering a user's question about heart-healthy diets.*
+*A brief demonstration of the chatbot answering a user's question.*
 
 ---
 
@@ -86,3 +86,46 @@ It's highly recommended to use a virtual environment to manage dependencies.
 ```bash
 git clone https://github.com/[Your-GitHub-Username]/health_rag_app.git
 cd health_rag_app
+```
+Create a Virtual Environment
+It's highly recommended to use a virtual environment to manage dependencies.
+
+```bash
+# For Windows
+python -m venv venv
+venv\Scripts\activate
+
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Set Up Environment Variables
+You'll need a Google Gemini API key.
+Create a file named .env in the root of the project directory.
+Add your API key to the file like this:
+
+```
+GOOGLE_API_KEY="your-gemini-api-key-goes-here"
+```
+
+## How to Run the Application
+The application requires a two-step process to run.
+Step 1: Build the Vector Store
+First, you need to run the script that processes your documents and creates the FAISS index. You only need to do this once, or whenever you update the files in the knowledge_base folder.
+```bash
+python build_vectorstore.py
+```
+You should see output confirming that the faiss_index folder has been created successfully.
+
+Step 2: Run the Streamlit App
+Now, you can launch the web application.
+```bash
+streamlit run app.py
+```
+
+Your browser should automatically open to the application's home page. Navigate to the "Health Chat" page from the sidebar to start interacting with the bot.
